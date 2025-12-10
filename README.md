@@ -1,66 +1,73 @@
-## Foundry
+```markdown
+# ERC20 Token Test
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Projeto de teste / aprendizado para criação de token ERC-20 customizado em Ethereum (ou EVM-compatible), com ambiente de desenvolvimento e scripts básicos para deploy e interação.
 
-Foundry consists of:
+---
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## 🚀 Tecnologias Utilizadas  
+- **Solidity** – contrato inteligente ERC-20  
+- **Hardhat** – framework de desenvolvimento, deploy e testes  
+- **ethers.js** – integração e scripts de interação com contrato  
+- **TypeScript / JavaScript** – scripts de deploy e interação  
+- (Opcional) **Foundry** — se houver testes escritos com Forge  
+- (Opcional) Configuração para redes de teste (testnets) / rede local  
 
-## Documentation
+---
 
-https://book.getfoundry.sh/
+## 🔧 Funcionalidades Principais  
+- Deploy de um token ERC-20 customizado com nome, símbolo e supply definidos  
+- Scripts para deploy, mint, transferência e verificação de saldos  
+- Estrutura mínima para testes e simulação de interações com o token  
+- Base adequada para expandir com funcionalidades extras (governança, vesting, queima, etc.)
 
-## Usage
+---
 
-### Build
+## 📂 Estrutura do Repositório  
+erc20_tokenTest/
+├── contracts/        # Código Solidity do token
+├── scripts/          # Scripts de deploy e interações (mint, transfer, etc.)
+├── test/             # Testes unitários (se houver)
+├── hardhat.config.ts # Configuração do Hardhat
+└── README.md         # Este arquivo
 
-```shell
-$ forge build
-```
+---
 
-### Test
+## 🧪 Como Executar / Testar  
 
-```shell
-$ forge test
-```
+1. Clone o repositório  
+   ```bash
+   git clone https://github.com/gabrielfst30/erc20_tokenTest.git
+   cd erc20_tokenTest
+````
 
-### Format
+2. Instale dependências
 
-```shell
-$ forge fmt
-```
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+3. Compile os contratos
 
-### Gas Snapshots
+   ```bash
+   npx hardhat compile
+   ```
+4. (Opcional) Execute testes
 
-```shell
-$ forge snapshot
-```
+   ```bash
+   npx hardhat test
+   ```
+5. Deploy local / testnet / mainnet — configure `hardhat.config.ts` com RPC e chave privada, então execute script de deploy:
 
-### Anvil
+   ```bash
+   npx hardhat run scripts/deploy.ts --network <your-network>
+   ```
 
-```shell
-$ anvil
-```
+---
 
-### Deploy
+## 🧑‍💻 Sobre o Projeto
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+Este repositório foi construído como um aprendizado prático de como implementar e interagir com tokens ERC-20. Serve como base leve e clara para projetos maiores: smart contracts, dApps, integração Web3, testes, infraestrutura de deploy.
 
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Se você busca algo mais sofisticado (governança, tokens vesting, integração com frontend, etc.), pode usar esse template como ponto de partida.
